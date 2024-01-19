@@ -39,13 +39,11 @@ const styles = StyleSheet.create({
     padding: 12,
     borderBottomColor: COLORS.inputBgColor,
     borderBottomWidth: 0.5,
-    alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
   },
   headerContent: {
     justifyContent: "center",
-    alignItems: "center",
   },
   emptyView: {
     width: 32,

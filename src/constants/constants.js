@@ -23,7 +23,6 @@ export default constants = {
       borderRadius: 25,
       fontSize: 16,
       flexDirection : 'row',
-      alignItems : 'center',
       justifyContent : "space-between"
     },
   }),

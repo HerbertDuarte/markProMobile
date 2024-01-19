@@ -191,18 +191,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.white,
     justifyContent: "start",
-    alignItems: "start",
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
     color: COLORS.primary,
-  },
-  header: {
-    padding: 12,
-    borderBottomColor: COLORS.inputBgColor,
-    borderBottomWidth: 0.5,
-    alignItems: "center",
   },
   content: {
     padding: 18,

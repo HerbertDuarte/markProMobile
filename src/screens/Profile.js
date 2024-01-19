@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.white,
     justifyContent: "start",
-    alignItems: "start",
   },
   title: {
     fontSize: 28,
@@ -112,7 +111,6 @@ const styles = StyleSheet.create({
   userInfoRow: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
     gap: 8,
   },
   userName: {
@@ -129,7 +127,6 @@ const styles = StyleSheet.create({
   dataInfosContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "center",
     padding: 24,
     borderBottomColor: COLORS.borderColor,
     borderBottomWidth: 0.5,

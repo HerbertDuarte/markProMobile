@@ -79,6 +79,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.white,
     justifyContent: "start",
-    alignItems: "start",
   },
 });

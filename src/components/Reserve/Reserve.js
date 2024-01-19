@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
 
   textWithIcon: {
     justifyContent: "flex-start",
-    alignItems: "center",
     flexDirection: "row",
     gap: 4,
   },
@@ -98,7 +97,6 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "flex-start",
-    alignItems: "center",
     gap: 12,
     paddingVertical: 12,
   },

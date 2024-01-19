@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 12,
-    alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
     borderBottomColor: COLORS.inputBgColor,
@@ -31,10 +30,10 @@ const styles = StyleSheet.create({
   },
   headerContent: {
     justifyContent: "center",
-    alignItems: "center",
   },
   label: {
     fontSize: 16,
     color: COLORS.discretText,
+    textAlign : 'center',
   },
 });

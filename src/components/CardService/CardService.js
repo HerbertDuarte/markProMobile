@@ -16,12 +16,10 @@ const styles = StyleSheet.create({
   container: {
     padding: 12,
     justifyContent : 'center',
-    alignItems : 'center'
   },
   content: {
     backgroundColor: COLORS.inputBgColor,
     justifyContent: "center",
-    alignItems: "center",
     padding: 16,
     borderRadius : 12
   },
