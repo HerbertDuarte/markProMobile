@@ -9,9 +9,9 @@ import {
   FlatList,
 } from "react-native";
 import { COLORS, DefaultStyles } from "../constants/constants";
-import { ArrowLeftCircleIcon } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
 import SearchResult from "../components/SearchResult/SearchResult";
+import SearchHeader from "../components/Headers/SearchHeader";
 
 export default function Search() {
   const services = [
@@ -109,23 +109,7 @@ export default function Search() {
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View>
-            <TouchableOpacity onPress={() => navigation.navigate("signin")}>
-              <ArrowLeftCircleIcon
-                strokeWidth={3}
-                size={32}
-                color={COLORS.primary}
-                style={styles.locateIcon}
-              />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.headerContent}>
-            <Text style={styles.title}>MarkPro</Text>
-            <Text style={styles.label}>medico</Text>
-          </View>
-          <View style={styles.emptyView}></View>
-        </View>
+        <SearchHeader category="barbearia" />
         <View style={styles.content}>
           <View style={styles.inputContainer}>
             <TextInput
@@ -159,34 +143,9 @@ const styles = StyleSheet.create({
   content:{
     paddingBottom: 60,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: COLORS.primary,
-  },
-  header: {
-    padding: 12,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
-  headerContent: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
   inputContainer: {
     padding: 20,
     borderBottomColor: COLORS.inputBgColor,
     borderBottomWidth: 0.5,
-  },
-
-  label: {
-    fontSize: 16,
-    color: COLORS.discretText,
-  },
-
-  emptyView: {
-    width: 32,
   },
 });

@@ -20,7 +20,6 @@ export default constants = {
       backgroundColor: "#f5f5f5",
       paddingVertical: 10,
       paddingHorizontal: 15,
-      width: "100%",
       borderRadius: 25,
       fontSize: 16,
       flexDirection : 'row',

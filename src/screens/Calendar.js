@@ -11,7 +11,7 @@ import { ArrowLeftCircleIcon } from "lucide-react-native";
 import Reserve from "../components/Reserve/Reserve";
 import { useNavigation } from "@react-navigation/native";
 import { FlatList } from "react-native-gesture-handler";
-
+import MainHeader from "../components/Headers/MainHeader";
 export default function Calendar() {
   const navigation = useNavigation();
   const reserves = [
@@ -63,21 +63,7 @@ export default function Calendar() {
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View>
-            <TouchableOpacity onPress={() => navigation.navigate("signin")}>
-              <ArrowLeftCircleIcon
-                strokeWidth={3}
-                size={32}
-                color={COLORS.primary}
-              />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.headerContent}>
-            <Text style={styles.title}>Minhas reservas</Text>
-          </View>
-          <View style={styles.emptyView}></View>
-        </View>
+       <MainHeader title="Minhas reservas" />
         <FlatList
           data={reserves}
           keyExtractor={(item, index) => index}
@@ -94,26 +80,5 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     justifyContent: "start",
     alignItems: "start",
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: COLORS.primary,
-  },
-  header: {
-    padding: 12,
-    borderBottomColor: COLORS.inputBgColor,    
-    borderBottomWidth: 0.5,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
-  headerContent: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  emptyView: {
-    width: 32,
   },
 });

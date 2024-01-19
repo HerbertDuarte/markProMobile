@@ -9,6 +9,7 @@ import {
 import { COLORS, DefaultStyles } from "../constants/constants";
 import { ArrowLeftCircleIcon, ChevronRightIcon, FileEditIcon, LockIcon, LogOutIcon, SettingsIcon } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
+import MainHeader from "../components/Headers/MainHeader";
 
 export default function Calendar() {
   const navigation = useNavigation();
@@ -16,22 +17,7 @@ export default function Calendar() {
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View>
-            <TouchableOpacity onPress={() => navigation.navigate("signin")}>
-              <ArrowLeftCircleIcon
-                strokeWidth={3}
-                size={32}
-                color={COLORS.primary}
-                style={styles.locateIcon}
-              />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.headerContent}>
-            <Text style={styles.title}>Meu Perfil</Text>
-          </View>
-          <View style={styles.emptyView}></View>
-        </View>
+        <MainHeader title="Meu perfil" />
         <View style={styles.content}>
 
           {/* user infos */}
@@ -111,23 +97,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: COLORS.primary,
   },
-  header: {
-    padding: 12,
-    borderBottomColor: COLORS.inputBgColor,
-    borderBottomWidth: 0.5,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
-  headerContent: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  content: {},
-  emptyView: {
-    width: 32,
-  },
   userShortInfos: {
     padding: 18,
     justifyContent: "center",
@@ -181,16 +150,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   optionsContainer: {
-    width: "100%",
     padding: 24,
     justifyContent: "center",
-    alignItems: "flex-start",
     gap: 12,
   },
   optionContent: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%",
     padding: 8,
     paddingBottom: 16,
     borderBottomColor: COLORS.borderColor,
@@ -199,7 +165,6 @@ const styles = StyleSheet.create({
   optionContentWithoutBorder: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%",
     padding: 8,
   },
   option: {

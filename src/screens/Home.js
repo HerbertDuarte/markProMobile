@@ -13,6 +13,7 @@ import {
   StethoscopeIcon,
 } from "lucide-react-native";
 import CardService from "../components/CardService/CardService";
+import MainHeader from "../components/Headers/MainHeader";
 
 export default function Home() {
   const servicesRow1 = [
@@ -141,24 +142,23 @@ export default function Home() {
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>MarkPro</Text>
-        </View>
+        <MainHeader title="MarkPro" />
         <View style={styles.content}>
           <Text style={styles.agende}>Agende os seus serviços</Text>
-
-          <View style={DefaultStyles.input}>
-            <TextInput
-              style={styles.input}
-              placeholderTextColor="#999"
-              placeholder="Em qual cidade você está?"
-            />
-            <MapPinIcon
-              strokeWidth={3}
-              size={24}
-              color={COLORS.primary}
-              style={styles.locateIcon}
-            />
+          <View style={styles.inputContainer}>
+            <View style={DefaultStyles.input}>
+              <TextInput
+                style={styles.input}
+                placeholderTextColor="#999"
+                placeholder="Em qual cidade você está?"
+              />
+              <MapPinIcon
+                strokeWidth={3}
+                size={24}
+                color={COLORS.primary}
+                style={styles.locateIcon}
+              />
+            </View>
           </View>
 
           <View style={styles.cardContainer}>
@@ -202,16 +202,17 @@ const styles = StyleSheet.create({
     padding: 12,
     borderBottomColor: COLORS.inputBgColor,
     borderBottomWidth: 0.5,
-    width: "100%",
     alignItems: "center",
   },
   content: {
     padding: 18,
   },
+  inputContainer: {
+    padding: 8
+  },
   input: {
     flexShrink: 1,
     flexGrow: 0,
-    flexBasis: "100%",
     marginRight: 8,
     fontSize: 16,
   },
