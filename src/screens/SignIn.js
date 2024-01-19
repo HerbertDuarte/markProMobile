@@ -15,7 +15,24 @@ export default function SignIn() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-       
+        <Text style={styles.title}>MarkPro</Text>
+        <View style={styles.form}>
+          <TextInput style={styles.input} placeholder="E-mail" />
+          <TextInput style={styles.input} placeholder="Senha" />
+
+          <TouchableOpacity
+            style={styles.button1}
+            onPress={() => navigation.navigate("tabroutes")}
+          >
+            <Text style={styles.textButton1}>Acessar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate("tabroutes")}
+          >
+            <Text style={styles.textButton2}>Meu estabelecimento</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={styles.messageConteiner}>
         <Text style={styles.message}>

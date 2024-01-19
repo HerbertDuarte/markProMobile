@@ -15,7 +15,6 @@ import {
 import CardService from "../components/CardService/CardService";
 
 export default function Home() {
-
   const servicesRow1 = [
     {
       label: "médico",
@@ -96,8 +95,8 @@ export default function Home() {
           />
         </View>
       ),
-    }
-  ]
+    },
+  ];
   const servicesRow3 = [
     {
       label: "Viagens",
@@ -137,8 +136,8 @@ export default function Home() {
           />
         </View>
       ),
-    }
-  ]
+    },
+  ];
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
@@ -165,19 +164,19 @@ export default function Home() {
           <View style={styles.cardContainer}>
             <View style={styles.cardRow}>
               {servicesRow1.map((item, index) => (
-                <CardService key={index} service={item}/>
+                <CardService key={index} service={item} />
               ))}
             </View>
 
             <View style={styles.cardRow}>
-            {servicesRow2.map((item, index) => (
-                <CardService key={index} service={item}/>
+              {servicesRow2.map((item, index) => (
+                <CardService key={index} service={item} />
               ))}
             </View>
 
             <View style={styles.cardRow}>
-            {servicesRow3.map((item, index) => (
-                <CardService key={index} service={item}/>
+              {servicesRow3.map((item, index) => (
+                <CardService key={index} service={item} />
               ))}
             </View>
           </View>
@@ -201,8 +200,8 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 12,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
+    borderBottomColor: COLORS.inputBgColor,
+    borderBottomWidth: 0.5,
     width: "100%",
     alignItems: "center",
   },

@@ -7,40 +7,41 @@ import {
   ClockIcon,
   MapPinIcon,
 } from "lucide-react-native";
+import { useState } from "react";
 
-export default function Reserve() {
+export default function Reserve({reserve}) {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.service}>Consulta com Dr Gustavo</Text>
-        <Text style={styles.local}>Clínica Sonesb</Text>
+        <Text style={styles.service}>{reserve.service}</Text>
+        <Text style={styles.local}>{reserve.local}</Text>
       </View>
       <View style={styles.infosContainer}>
         <View style={styles.localDateContainer}>
           <View style={styles.textWithIcon}>
             <CalendarCheckIcon color={COLORS.primary} />
-            <Text style={styles.simpleText}>09/01/2024</Text>
+            <Text style={styles.simpleText}>{reserve.date}</Text>
           </View>
           <View style={styles.textWithIcon}>
             <ClockIcon color={COLORS.primary} />
-            <Text style={styles.simpleText}>08:15h</Text>
+            <Text style={styles.simpleText}>{reserve.time}</Text>
           </View>
         </View>
         <View>
           <View style={styles.textWithIcon}>
             <CircleDollarSignIcon color={COLORS.primary} />
-            <Text style={styles.simpleText}>R$ 400,00</Text>
+            <Text style={styles.simpleText}>{reserve.price}</Text>
           </View>
         </View>
         <View>
           <View style={styles.textWithIcon}>
             <MapPinIcon color={COLORS.primary} />
-            <Text style={styles.simpleText}>Av. Jonas Hortelio, 306</Text>
+            <Text style={styles.simpleText}>{reserve.address}</Text>
           </View>
           <Text style={styles.textWithOutIcon}>
-            Recreio, Vitória da Conquista
+            {reserve.neighborhood}, {reserve.city}
           </Text>
-          <Text style={styles.textWithOutIcon}>(77)99999-9999</Text>
+          <Text style={styles.textWithOutIcon}>{reserve.phone}</Text>
         </View>
       </View>
       <View style={styles.buttonsContainer}>
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 12,
     borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
   },
   service: {
     color: COLORS.grey,
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     gap: 12,
-    paddingVertical : 12
+    paddingVertical: 12,
   },
   reagendar: {
     backgroundColor: COLORS.primary,

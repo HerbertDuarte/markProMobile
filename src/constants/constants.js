@@ -9,7 +9,7 @@ export default constants = {
     placeholderColor: "#999",
     white: "#fff",
     lightGrey : "#666",
-    grey : "#444"
+    grey : "#444",
   },
   DefaultStyles: StyleSheet.create({
     safeArea: {

@@ -9,19 +9,67 @@ import {
 import { COLORS, DefaultStyles } from "../constants/constants";
 import { ArrowLeftCircleIcon } from "lucide-react-native";
 import Reserve from "../components/Reserve/Reserve";
+import { useNavigation } from "@react-navigation/native";
+import { FlatList } from "react-native-gesture-handler";
 
 export default function Calendar() {
+  const navigation = useNavigation();
+  const reserves = [
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+  },
+  {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+  },
+  {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+  },
+  {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+  }
+  ]
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("signin")}>
               <ArrowLeftCircleIcon
                 strokeWidth={3}
                 size={32}
                 color={COLORS.primary}
-                style={styles.locateIcon}
               />
             </TouchableOpacity>
           </View>
@@ -30,12 +78,11 @@ export default function Calendar() {
           </View>
           <View style={styles.emptyView}></View>
         </View>
-        <ScrollView style={styles.content}>
-          <Reserve/>
-          <Reserve/>
-          <Reserve/>
-          <Reserve/>
-        </ScrollView>
+        <FlatList
+          data={reserves}
+          keyExtractor={(item, index) => index}
+          renderItem={({ item }) => <Reserve reserve={item} />}
+        />
       </View>
     </SafeAreaView>
   );
@@ -55,8 +102,8 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 12,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
+    borderBottomColor: COLORS.inputBgColor,    
+    borderBottomWidth: 0.5,
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
@@ -65,35 +112,6 @@ const styles = StyleSheet.create({
   headerContent: {
     justifyContent: "center",
     alignItems: "center",
-  },
-  inputContainer: {
-    paddingHorizontal: 12,
-    paddingVertical: 20,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
-  },
-
-  label: {
-    fontSize: 16,
-    color: COLORS.discretText,
-  },
-
-  serviceInfo: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
-  },
-
-  serviceName: {
-    fontSize: 22,
-    fontWeight: "500",
-    color: COLORS.grey,
-  },
-
-  serviceSubInfo: {
-    fontSize: 16,
-    color: COLORS.lightGrey,
   },
   emptyView: {
     width: 32,

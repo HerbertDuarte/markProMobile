@@ -6,20 +6,112 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { COLORS, DefaultStyles } from "../constants/constants";
 import { ArrowLeftCircleIcon } from "lucide-react-native";
+import { useNavigation } from "@react-navigation/native";
+import SearchResult from "../components/SearchResult/SearchResult";
 
 export default function Search() {
-  const count = [
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+  const services = [
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
+    {
+      service: "Corte de cabelo",
+      local: "Barbearia do Zé",
+      date: "10/10/2021",
+      time: "10:00",
+      price: "R$ 30,00",
+      address: "Rua dos bobos, 700",
+      neighborhood: "Centro",
+      city: "Vitória da Conquista",
+      phone: "(00) 00000-0000",
+    },
   ];
+
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={DefaultStyles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("signin")}>
               <ArrowLeftCircleIcon
                 strokeWidth={3}
                 size={32}
@@ -43,27 +135,14 @@ export default function Search() {
             />
           </View>
 
-          <ScrollView
-            showsVerticalScrollIndicator={true}
-            contentContainerStyle={{
-              paddingBottom : 64
-            }}
-          >
-            {count.map((item, index) => (
-              <TouchableOpacity key={index}>
-                <View style={styles.serviceInfo}>
-                  <Text style={styles.serviceName}>Clínica Sonesb</Text>
-                  <Text style={styles.serviceSubInfo}>
-                  Av. Jonas Hortelio, 306
-                  </Text>
-                  <Text style={styles.serviceSubInfo}>
-                  Recreio - Vitória da Conquista
-                  </Text>
-                  <Text style={styles.serviceSubInfo}>(77) 99000-0000</Text>
-                </View>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
+          <FlatList
+            data={services}
+            style={styles.flatList}
+            keyExtractor={(item, index) => index}
+            renderItem={({ item, index }) => (
+              <SearchResult service={item} index={index} />
+            )}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -73,9 +152,12 @@ export default function Search() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
     justifyContent: "start",
     alignItems: "start",
+    backgroundColor: COLORS.white,
+  },
+  content:{
+    paddingBottom: 60,
   },
   title: {
     fontSize: 28,
@@ -84,8 +166,6 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 12,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
@@ -96,10 +176,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   inputContainer: {
-    paddingHorizontal: 12,
-    paddingVertical: 20,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
+    padding: 20,
+    borderBottomColor: COLORS.inputBgColor,
+    borderBottomWidth: 0.5,
   },
 
   label: {
@@ -107,23 +186,6 @@ const styles = StyleSheet.create({
     color: COLORS.discretText,
   },
 
-  serviceInfo: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderBottomColor: COLORS.borderColor,
-    borderBottomWidth: 1,
-  },
-
-  serviceName: {
-    fontSize: 22,
-    fontWeight: "500",
-    color: COLORS.grey,
-  },
-
-  serviceSubInfo: {
-    fontSize: 16,
-    color: COLORS.lightGrey,
-  },
   emptyView: {
     width: 32,
   },
